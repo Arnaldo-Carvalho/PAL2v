@@ -8,26 +8,28 @@ resp='s'
 while resp=='s'||resp=='S'
 clear
 clc
-disp "*** LÓGICA PARACONSISTENTE ANOTADA COM ANOTAÇÃO DE 2 VALORES ***"
-disp "                          LPA2v"
-disp ""
+// Exibe mensagens e aguarda entrada de dados na janela de console
+mprintf("*** LÓGICA PARACONSISTENTE ANOTADA COM ANOTAÇÃO DE 2 VALORES ***")
+mprintf(" \n");mprintf(" \n"); // exibe linha em branco no console
+mprintf(" LPA2v")
+mprintf(" \n");mprintf(" \n");
 Mi = input("Informe o Grau de Evidência Favorável (entre 0.00 e 1.00): ")
-disp ""
+mprintf(" \n");mprintf(" \n");
 Lbda=input("Informe o Grau de Evidência Desfavorável (entre 0.00 e 1.00): ")
-disp ""
+mprintf(" \n");mprintf(" \n");
 Lc=input("Informe o Controle (ente {0,1} Valor default = 0.5}")
-disp ""
+mprintf(" \n");mprintf(" \n");
 Lcc = Lc
 Lcct = 1 - Lcc
 
 clc
-disp "*** LÓGICA PARACONSISTENTE ANOTADA COM ANOTAÇÃO DE 2 VALORES"
-disp ""
-disp "                             LPA2v"
-disp ""
+mprintf("*** LÓGICA PARACONSISTENTE ANOTADA COM ANOTAÇÃO DE 2 VALORES ***")
+mprintf(" \n");mprintf(" \n");
+mprintf(" LPA2v")
+mprintf(" \n");mprintf(" \n");
 mprintf("Grau de Evidência Favorável (Mi) = %7.2f \n",Mi)
 mprintf("Grau de Evidência Desfavorável (Lambda) %7.2f \n",Lbda)
-disp ""
+mprintf(" \n");mprintf(" \n");
 GC=Mi-Lbda; // Cálculo GC
 mprintf("Grau de Certeza (GC) = %7.2f \n",GC);
 GCT=Mi+Lbda-1; // Cálculo GCT
@@ -45,7 +47,7 @@ mprintf("Grau de Evidência Resultante (MIE) = %7.2f \n",MIE);
 mprintf("Grau de Evidência Resultante Real (MIER) = %7.2f \n",MIER);
 MIEct=(GCT+1)/2; // Cálculo MIEct
 mprintf("Grau de Contradição Resultante (MIEct) = %7.2f \n",MIEct);
-disp ""
+mprintf(" \n");mprintf(" \n");
 if GC>=Lcc then S1="Verdadeiro (V)"
 else if GC<=-Lcc then S1="Falso (F)"
 else if GCT>=Lcct then S1="Inconsistente (T)"
@@ -113,13 +115,13 @@ xstring(GC, (GCT-0.06),["<=",'$\epsilon$','(',string(GC),',',string(GCT),")"])
 xstring(0.3,0.9,"GRAU DE EVIDENCIA ")
 xstring(0.3,0.8,["RES. REAL = ",string(MIER)])
 xtitle( 'Diagrama Lattice LPA2v', boxed = %t)
-disp('  ')     
+mprintf(" \n");mprintf(" \n");   
 resp=input('Deseja realizar novo estudo (S/N) ?',"s")
 R=isempty(resp)
 if R==1 || resp<>"s" then resp = 'N'
     else resp='S'
     end
-disp('  ')        
+mprintf(" \n");mprintf(" \n");   
 disp('ATÉ BREVE!');
 end;
 
